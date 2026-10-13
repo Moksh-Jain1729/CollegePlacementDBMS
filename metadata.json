@@ -1,0 +1,6 @@
+{
+  "name": "College Placement Manager",
+  "description": "Full-stack college placement management system with eligibility rules, drive tracking, interview rounds, and department analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

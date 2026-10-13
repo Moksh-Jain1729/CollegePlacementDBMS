@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   COLLEGE PLACEMENT MANAGER — DESIGN TOKENS
+   Clean, Minimal, Professional College Dashboard
+   ========================================================================== */
+
+:root {
+  /* Typography: Single readable sans-serif + tabular monospace for numbers */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* Clear Size Hierarchy */
+  --text-page-title: 1.5rem;      /* 24px */
+  --text-section-heading: 1.125rem; /* 18px */
+  --text-body: 0.875rem;          /* 14px */
+  --text-label: 0.75rem;          /* 12px */
+
+  /* Soft Tinted Grays & Surface Tokens (Light Mode) */
+  --bg-canvas: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #F1F5F9;
+  --border-subtle: #E2E8F0;
+  --border-strong: #CBD5E1;
+
+  /* Readable Text Hierarchy (WCAG AA+) */
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+
+  /* Primary Brand + One Accent */
+  --color-brand: #4338CA;         /* Indigo-700 */
+  --color-brand-hover: #3730A3;   /* Indigo-800 */
+  --color-brand-soft: #EEF2FF;
+  --color-accent: #0D9488;        /* Teal-600 */
+
+  /* Semantic Status Badge Tokens */
+  --status-info-bg: #EFF6FF;
+  --status-info-text: #1D4ED8;
+  --status-info-border: #BFDBFE;
+
+  --status-warning-bg: #FFFBEB;
+  --status-warning-text: #B45309;
+  --status-warning-border: #FDE68A;
+
+  --status-success-bg: #ECFDF5;
+  --status-success-text: #047857;
+  --status-success-border: #A7F3D0;
+
+  --status-error-bg: #FEF2F2;
+  --status-error-text: #B91C1C;
+  --status-error-border: #FECACA;
+
+  /* Consistent Spacing Scale (8 / 16 / 24 / 32px) & Shape (8–12px) */
+  --space-1: 0.5rem;   /* 8px */
+  --space-2: 1rem;     /* 16px */
+  --space-3: 1.5rem;   /* 24px */
+  --space-4: 2rem;     /* 32px */
+
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+.dark {
+  --bg-canvas: #0B0F19;
+  --bg-surface: #111827;
+  --bg-subtle: #1E293B;
+  --border-subtle: #1E293B;
+  --border-strong: #334155;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+
+  --color-brand: #6366F1;
+  --color-brand-hover: #818CF8;
+  --color-brand-soft: rgba(99, 102, 241, 0.15);
+  --color-accent: #14B8A6;
+
+  --status-info-bg: rgba(59, 130, 246, 0.15);
+  --status-info-text: #93C5FD;
+  --status-info-border: rgba(59, 130, 246, 0.35);
+
+  --status-warning-bg: rgba(245, 158, 11, 0.15);
+  --status-warning-text: #FCD34D;
+  --status-warning-border: rgba(245, 158, 11, 0.35);
+
+  --status-success-bg: rgba(16, 185, 129, 0.15);
+  --status-success-text: #6EE7B7;
+  --status-success-border: rgba(16, 185, 129, 0.35);
+
+  --status-error-bg: rgba(239, 68, 68, 0.15);
+  --status-error-text: #FCA5A5;
+  --status-error-border: rgba(239, 68, 68, 0.35);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: var(--text-primary);
+    background-color: var(--bg-canvas);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, .font-display {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  h2, h3, h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Accessible Keyboard Focus Ring */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}
+
+/* Dark mode surface mapping */
+.dark .bg-white {
+  background-color: var(--bg-surface) !important;
+}
+.dark .bg-slate-50, .dark .bg-slate-50\/80, .dark .bg-slate-100 {
+  background-color: var(--bg-subtle) !important;
+}
+.dark .border-slate-200 {
+  border-color: var(--border-subtle) !important;
+}
+.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--border-subtle) !important;
+}
+.dark .text-slate-900, .dark .text-slate-800 {
+  color: var(--text-primary) !important;
+}
+.dark .text-slate-700, .dark .text-slate-600 {
+  color: var(--text-secondary) !important;
+}
+.dark .text-slate-500, .dark .text-slate-400 {
+  color: var(--text-muted) !important;
+}
+.dark input, .dark select, .dark textarea {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
